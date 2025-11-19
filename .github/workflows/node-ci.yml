@@ -1,34 +1,33 @@
-name: node.js CI Workflow
+name: Node.js CI Workflow
 
-on: 
-    push:
-        branches: [ main ]
-    pull_request:
+on:
+  push:
+    branches: [ main ]
+  pull_request:
 
-jobs: 
-    build-and-test:
-        runs-on: ubuntu-latest
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
 
-        steps:
-            # step 1 checkout repository
-            - name: Checkout repository
-              uses: actions/checkout@v4
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            #step 2 setup node.js
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with: 
-                node-version: 18
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-            # step 3 install dependencies
-            - name: install dependencies
-              run: npm install
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-            # step 4 run tests
-            - name: Run test with jest
-              run: npm test
+      # Step 4: Run tests
+      - name: Run tests with Jest
+        run: npm test
 
-            # step 5 print success message
-            - name: success message
-              run: echo "✅ CI pipeline completed successfully!"
-
+      # Step 5: Print success message
+      - name: Success message
+        run: echo "✅ CI pipeline completed successfully!"
