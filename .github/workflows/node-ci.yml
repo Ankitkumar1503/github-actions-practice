@@ -23,10 +23,12 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
+        working-directory: ./node-ci-test
 
       # Step 4: Run tests
       - name: Run tests with Jest
         run: npm test
+        working-directory: ./node-ci-test
 
       # Step 5: Print success message
       - name: Success message
